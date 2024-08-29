@@ -5,7 +5,7 @@ import {
 import ReactDOM from 'react-dom/client'
 
 import './index.css'
-import Home from "./Pages/Home/home";
+import Home from "./pages/home/home";
 
 
 const router = createBrowserRouter([
