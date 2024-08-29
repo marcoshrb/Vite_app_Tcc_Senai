@@ -1,0 +1,47 @@
+.all_sidebar{
+    display: flex;
+    z-index: 1000; 
+    right: 0;
+}
+
+.button_close_sidebar{
+    position: fixed;
+    top: 0;
+    margin: 25px;
+    margin-right: 22%;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-style: none;
+    background-color: transparent;
+}
+
+aside {
+    background-color: var(--azul-escuro);
+    padding: 2.5em 1em;
+    width: 20%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.lista_sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    list-style-type: none;
+    margin-top: 5em;
+}
+
+.lista_sidebar li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+    gap: 10px;
+}

@@ -1,0 +1,75 @@
+.HomePage{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+.Logo_Home{
+    height: 130px;
+    width: 215px;
+    margin: 25px 0px 25px 0px;
+}
+
+.Overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
+}
+.nav__Options {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.lista_sidebar_options{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+.lista_sidebar_options li a {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+@media screen and (max-width: 950px) {
+    
+    .lista_sidebar_options {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        list-style-type: none;
+        justify-content: space-between;
+    }
+}
+
+.wrap_flip_card_small{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+}
+
+.item__Options__link{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.lista_sidebar_options_row{
+    display: flex;
+    flex-direction: row;
+}

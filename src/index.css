@@ -1,0 +1,27 @@
+:root {
+  --verde-destaque: #81FE88;
+  --verde-petroleo: #132E35;
+  --grafite: #01080E;
+  --azul-escuro: #192457;
+  --azul-claro: #6e7dc4;
+  --cinza-escuro: #171D1F;
+  --cinza-medio: #D9D9D9;
+  --cinza: #3E3E3F;
+  --cinza-claro: #BCBCBC;
+  --offwhite: #E1E1E1;
+  --branco: #FFFFFF;
+  --fonte: "Prompt", sans-serif;
+  --new-font : "Gentium Book Plus", serif;
+}
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('./assets/Background.svg');
+  font-family: var(--fonte);
+  height: 100%;
+}
