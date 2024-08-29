@@ -14,7 +14,7 @@ import Languagens from "./pages/languages/languages"
 
 const router = createBrowserRouter([
   { 
-    path: "./",
+    path: "/",
     element: <Login/>,
   },
   { 
