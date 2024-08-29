@@ -1,0 +1,39 @@
+.all_LanguageScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.language_display_img{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 60px;
+}
+.Container_Languages{
+    padding: 0%;
+    width: 100%;
+    height: 100%;
+    margin: 2% 0% 5% 0%;
+}
+.Row_optins_languages{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.Col_optins_languages{
+    height: 100%;
+    min-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+

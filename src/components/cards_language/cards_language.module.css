@@ -1,0 +1,14 @@
+.button_Language {
+    height: 117px;
+    width: 100%;
+    font-size: 50px;
+    color: var(--branco);
+    background-color: var(--azul-escuro);
+    border-style: none;
+}   
+
+.button_Language:hover {
+    background-color: var(--azul-claro);
+    border-width: 10px;
+    border-color: aqua;
+}

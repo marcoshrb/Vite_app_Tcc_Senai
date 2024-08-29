@@ -1,0 +1,57 @@
+.Login_all{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+}
+.Login_div_Left{
+    width: 50vw;
+    height: 100vh;
+    background-image: url('./assets/Background.svg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Login_div_Right{
+    width: 50vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.Login_bem_vindo{
+    font-family: var(--new-font);
+    font-size: 96px;
+    margin-bottom: 10%;
+}
+.Login_p{
+    font-family: var(--new-font);
+    font-size: 40px;
+}
+.Login_Recuperar_senha{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+}
+.Login_p_Esqueceu{
+    font-family: var(--new-font);
+    font-size: 20px;
+}
+.Login_Inputs{
+    padding: 5px 25px 5px 25px;
+    font-family: var(--new-font);
+    font-size: 40px;
+    border-radius: 50px;
+    border-style: none;
+    background-color: var(--cinza-medio);
+}
+.Login_FlipCards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 10%;
+}

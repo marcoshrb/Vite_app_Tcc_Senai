@@ -1,0 +1,27 @@
+.cam_settigns{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.cam_settigns_body{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.cam_settigns_flip_cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+}
+.cam_settigns_cam_response{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.Return_cam{
+    width: 90%;  
+    height: 100%;
+}

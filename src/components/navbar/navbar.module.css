@@ -1,0 +1,11 @@
+.navbar{
+    background-color: var(--azul-escuro);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px 10px 60px;
+}
+.navba_logo{
+    width: 100px;
+}
