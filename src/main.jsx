@@ -8,13 +8,13 @@ import './index.css'
 
 import Home from "./pages/home/home";
 import Cadastro from "./pages/cadastro/cadastro"
-import Login from "./pages/login/Login";
+import Login from "./pages/login/login";
 import CamSettigns from "./pages/cam_settings/cam_settings"
 import Languagens from "./pages/languages/languages"
 
 const router = createBrowserRouter([
   { 
-    path: "/",
+    path: "./",
     element: <Login/>,
   },
   { 
