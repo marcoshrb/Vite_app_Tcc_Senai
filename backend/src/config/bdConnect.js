@@ -2,7 +2,7 @@ import mongoose, {mongo} from "mongoose";
 
 // user: adm
 async function connectDatabase(){
-    mongoose.connect("mongodb+srv://adm:adm123@cluster0.gaveg.mongodb.net/TccSenai?retryWrites=true&w=majority&appName=Cluster0");
+    mongoose.connect(process.env.DB_CONNECTION_STRING);
     return mongoose.connection;   
 };
 
