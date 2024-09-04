@@ -11,7 +11,7 @@ export default function FlipCardSmall({ Icon, Text_desc, To, SetVariable }) {
                     <div className={style.flip_card_inner}>
                         <div className={style.flip_card_front}>
                             <div className={style.item_link_flipCard_Small}>
-                                <img src={Icon} alt="" className={style.img_flipCard_Small} />
+                                <img src={Icon} alt="Icon" className={style.img_flipCard_Small} />
                             </div>
                         </div>
                         <div className={style.flip_card_back}>

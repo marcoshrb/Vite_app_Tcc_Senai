@@ -20,10 +20,14 @@ export default function Login() {
             </div>
             <div className={style.Login_div_Right}>
                 <h1 className={style.Login_bem_vindo}>Bem Vindo</h1>
-                <p className={style.Login_p}>Usuário: </p>
-                <input onChange={(evento) => setSenha(evento.target.value)} className={style.Login_Inputs} type='email' />
-                <p className={style.Login_p}>Senha: </p>
-                <input onChange={(evento) => setUser(evento.target.value)} className={style.Login_Inputs} type='password' />
+                <div>
+                    <p className={style.Login_p}>Usuário: </p>
+                    <input onChange={(evento) => setUser(evento.target.value)} value={user} className={style.Login_Inputs} type='password' />
+                </div>
+                <div>
+                    <p className={style.Login_p}>Senha: </p>
+                    <input onChange={(evento) => setSenha(evento.target.value)} value={senha} className={style.Login_Inputs} type='email' />
+                </div>
                 <div className={style.Login_Recuperar_senha}>
                     <p className={style.Login_p_Esqueceu}>Esqueceu sua senha?</p>
                     <a className={style.Login_p_Esqueceu} href=''>Recuperar</a>

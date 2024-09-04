@@ -1,56 +1,73 @@
-.Login_all{
+.cadastro_all{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100vw;
 }
-.Login_div_Left{
-    width: 50vw;
+.cadastro_div_Left{
+    width: 100%;
     height: 100vh;
     background-image: url('./assets/Background.svg');
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.Login_div_Right{
-    width: 50vw;
+.cadastro_div_Right{
+    width: 100%;
     height: 100vh;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    gap: 30px;
 }
-.Login_bem_vindo{
+.cadastro_bem_vindo{
     font-family: var(--new-font);
     font-size: 96px;
-    margin-bottom: 10%;
 }
-.Login_p{
+.cadastro_p{
     font-family: var(--new-font);
-    font-size: 40px;
+    font-size: 30px;
+    padding-left: 20px;
 }
-.Login_Recuperar_senha{
+.cadastro_Recuperar_senha{
     display: flex;
     flex-direction: row;
     margin-top: 3%;
 }
-.Login_p_Esqueceu{
+.cadastro_p_Esqueceu{
     font-family: var(--new-font);
     font-size: 20px;
 }
-.Login_Inputs{
+.cadastro_Inputs{
     font-family: var(--new-font);
     font-size: 40px;
+    padding: 5px 25px 5px 25px;
     border-radius: 50px;
     border-style: none;
     background-color: var(--cinza-medio);
 }
-.Login_FlipCards{
+
+.cadastro_voltar_login{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 60%;
-    margin-top: 10%;
+    gap: 10px;
+}
+
+.cadastro_text_voltar{
+    font-family: var(--new-font);
+    font-size: 20px;
+}
+.cadastro_button_continuar{
+    width: 50%;
+    height: 80px;
+    font-size: 40px;
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    border-style: none;
+}
+.cadastro_button_continuar :hover{
+    cursor: pointer;
+    background-color: var(--azul-escuro);
 }

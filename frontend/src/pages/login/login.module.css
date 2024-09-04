@@ -5,7 +5,7 @@
     width: 100vw;
 }
 .Login_div_Left{
-    width: 50vw;
+    width: 100%;
     height: 100vh;
     background-image: url('./assets/Background.svg');
     display: flex;
@@ -13,19 +13,28 @@
     align-items: center;
 }
 .Login_div_Right{
-    width: 50vw;
+    width: 100%;
     height: 100vh;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    gap: 35px;
 }
+
+@media (max-width : 1000px) {
+    .Login_div_Right{
+        width: 100%;
+    }
+    .Login_div_Left{
+        width: 0%;
+    }
+}
+
 .Login_bem_vindo{
     font-family: var(--new-font);
     font-size: 96px;
-    margin-bottom: 10%;
 }
 .Login_p{
     font-family: var(--new-font);
@@ -34,7 +43,7 @@
 .Login_Recuperar_senha{
     display: flex;
     flex-direction: row;
-    margin-top: 3%;
+    gap: 10px;
 }
 .Login_p_Esqueceu{
     font-family: var(--new-font);
@@ -42,6 +51,8 @@
 }
 .Login_Inputs{
     padding: 5px 25px 5px 25px;
+    
+    width: 100%;
     font-family: var(--new-font);
     font-size: 40px;
     border-radius: 50px;
