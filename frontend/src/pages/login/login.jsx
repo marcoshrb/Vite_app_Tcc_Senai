@@ -15,10 +15,10 @@ export default function Login() {
 
         if (!formValid()) return;
 
-        const login = { nome, senha }; 
+        const login = { nome, senha };
 
         try {
-            const response = await api.post("/user/login", login); 
+            const response = await api.post("/user/login", login);
             console.log(response, 'dsadasdad')
 
             if (response.status === 200) {
@@ -45,7 +45,7 @@ export default function Login() {
         return true;
     }
 
-    function navigateCadastro(){
+    function navigateCadastro() {
         navigate('/cadastro')
     }
 
@@ -56,32 +56,36 @@ export default function Login() {
                 <img src={Logo} alt='Logo' width={380} height={276} />
             </div>
             <form onSubmit={handleSubmit} className={style.Login_div_Right}>
-
                 <h1 className={style.Login_bem_vindo}>Bem Vindo</h1>
-                <div>
-                    <p className={style.Login_p}>Usuário: </p>
-                    <input
-                        onChange={(evento) => setNome(evento.target.value)}
-                        value={nome}
-                        className={style.Login_Inputs}
-                        type='text'
-                    />
+                <div style={{padding: '15% 0% 15% 0% ', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <div >
+                        <p className={style.Login_p}>Usuário: </p>
+                        <input
+                            onChange={(evento) => setNome(evento.target.value)}
+                            value={nome}
+                            className={style.Login_Inputs}
+                            type='text'
+                        />
+                    </div>
+                    <div>
+                        <p className={style.Login_p}>Senha: </p>
+                        <input
+                            onChange={(evento) => setSenha(evento.target.value)}
+                            value={senha}
+                            className={style.Login_Inputs}
+                            type='password'
+                        />
+                    </div>
+                    <div className={style.Login_Recuperar_senha}>
+                        <p className={style.Login_p_Esqueceu}>Esqueceu sua senha?</p>
+                        <a className={style.Login_p_Esqueceu} href=''>Recuperar</a>
+                    </div>
                 </div>
-                <div>
-                    <p className={style.Login_p}>Senha: </p>
-                    <input
-                        onChange={(evento) => setSenha(evento.target.value)}
-                        value={senha}
-                        className={style.Login_Inputs}
-                        type='password'
-                    />
-                </div>
-                <div className={style.Login_Recuperar_senha}>
-                    <p className={style.Login_p_Esqueceu}>Esqueceu sua senha?</p>
-                    <a className={style.Login_p_Esqueceu} href=''>Recuperar</a>
-                </div>
+                <div className={style.Login_buttons}>
+
                 <button className={style.login_button} type='submit'>Log in</button>
                 <button className={style.login_button_cadastro} onClick={navigateCadastro}>Cadastre-se</button>
+                </div>
             </form>
         </div>
     );

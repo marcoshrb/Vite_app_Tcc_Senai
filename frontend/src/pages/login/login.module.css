@@ -1,10 +1,11 @@
-.Login_all{
+.Login_all {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100vw;
 }
-.Login_div_Left{
+
+.Login_div_Left {
     width: 100%;
     height: 100vh;
     background-image: url('./assets/Background.svg');
@@ -12,44 +13,51 @@
     justify-content: center;
     align-items: center;
 }
-.Login_div_Right{
+
+.Login_div_Right {
     width: 100%;
     height: 100vh;
     background-color: rgb(188, 184, 184);
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 6% 2% 2% 2%;
 }
 
 @media (max-width : 1000px) {
-    .Login_div_Right{
+    .Login_div_Right {
         width: 100%;
     }
-    .Login_div_Left{
+
+    .Login_div_Left {
         width: 0%;
     }
 }
-.Login_bem_vindo{
+
+.Login_bem_vindo {
     font-family: var(--new-font);
     font-size: 76px;
 }
-.Login_p{
+
+.Login_p {
     font-family: var(--new-font);
     font-size: 30px;
     padding-left: 20px;
 }
-.Login_Recuperar_senha{
+
+.Login_Recuperar_senha {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
-.Login_p_Esqueceu{
+
+.Login_p_Esqueceu {
     font-family: var(--new-font);
     font-size: 20px;
 }
-.Login_Inputs{
+
+.Login_Inputs {
     width: 100%;
     font-family: var(--new-font);
     font-size: 40px;
@@ -59,27 +67,39 @@
     background-color: var(--cinza-medio);
 }
 
-.login_button{
+.Login_buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+    gap: 6%;
+}
+
+.login_button {
     width: 50%;
-    height: 10% ;
+    height: 50px;
     font-size: 30px;
     background-color: var(--azul-claro);
     color: var(--branco);
     border-style: none;
 }
-.login_button :hover{
+
+.login_button :hover {
     cursor: pointer;
     background-color: var(--azul-escuro);
 }
-.login_button_cadastro{
+
+.login_button_cadastro {
     width: 50%;
-    height: 10% ;
+    height: 50px;
     font-size: 30px;
     background-color: var(--azul-claro);
     color: var(--branco);
     border-style: none;
 }
-.login_button_cadastro :hover{
+
+.login_button_cadastro :hover {
     cursor: pointer;
     background-color: var(--azul-escuro);
 }
