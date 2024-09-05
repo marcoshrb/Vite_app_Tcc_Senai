@@ -11,6 +11,7 @@ import Cadastro from "./pages/cadastro/cadastro"
 import Login from "./pages/login/login";
 import CamSettigns from "./pages/cam_settings/cam_settings"
 import Languagens from "./pages/languages/languages"
+import RecoverPassword from "./pages/recover_password/recover_password";
 
 const router = createBrowserRouter([
   { 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   { 
     path: "/cadastro",
     element: <Cadastro/>,
+  },
+  { 
+    path: "/recuperar_senha",
+    element: <RecoverPassword/>,
   },
   { 
     path: "/home",

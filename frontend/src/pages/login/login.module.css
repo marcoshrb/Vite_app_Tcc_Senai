@@ -66,3 +66,28 @@
     width: 60%;
     margin-top: 10%;
 }
+
+.login_button{
+    width: 50%;
+    height: 80px;
+    font-size: 40px;
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    border-style: none;
+}
+.login_button :hover{
+    cursor: pointer;
+    background-color: var(--azul-escuro);
+}
+.login_button_cadastro{
+    width: 50%;
+    height: 80px;
+    font-size: 40px;
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    border-style: none;
+}
+.login_button_cadastro :hover{
+    cursor: pointer;
+    background-color: var(--azul-escuro);
+}
