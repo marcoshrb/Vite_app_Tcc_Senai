@@ -18,29 +18,32 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
-    gap: 30px;
+    padding: 20px;
 }
+
+@media (max-width : 1000px) {
+    .cadastro_div_Right{
+        width: 100%;
+    }
+    .cadastro_div_Left{
+        width: 0%;
+    }
+}
+
 .cadastro_bem_vindo{
     font-family: var(--new-font);
-    font-size: 96px;
+    font-size: 76px;
 }
 .cadastro_p{
     font-family: var(--new-font);
-    font-size: 30px;
+    font-size: 20px;
     padding-left: 20px;
 }
-.cadastro_Recuperar_senha{
-    display: flex;
-    flex-direction: row;
-    margin-top: 3%;
-}
-.cadastro_p_Esqueceu{
-    font-family: var(--new-font);
-    font-size: 20px;
-}
+
 .cadastro_Inputs{
+    width: 100%;
     font-family: var(--new-font);
     font-size: 40px;
     padding: 5px 25px 5px 25px;
@@ -57,7 +60,7 @@
 
 .cadastro_text_voltar{
     font-family: var(--new-font);
-    font-size: 20px;
+    font-size: 15px;
 }
 .cadastro_button_continuar{
     width: 50%;

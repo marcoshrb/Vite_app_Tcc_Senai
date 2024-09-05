@@ -15,12 +15,12 @@
 .Login_div_Right{
     width: 100%;
     height: 100vh;
-    background-color: white;
+    background-color: rgb(188, 184, 184);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
-    gap: 35px;
+    padding: 20px;
 }
 
 @media (max-width : 1000px) {
@@ -31,14 +31,14 @@
         width: 0%;
     }
 }
-
 .Login_bem_vindo{
     font-family: var(--new-font);
-    font-size: 96px;
+    font-size: 76px;
 }
 .Login_p{
     font-family: var(--new-font);
-    font-size: 40px;
+    font-size: 30px;
+    padding-left: 20px;
 }
 .Login_Recuperar_senha{
     display: flex;
@@ -50,27 +50,19 @@
     font-size: 20px;
 }
 .Login_Inputs{
-    padding: 5px 25px 5px 25px;
-    
     width: 100%;
     font-family: var(--new-font);
     font-size: 40px;
+    padding: 5px 25px 5px 25px;
     border-radius: 50px;
     border-style: none;
     background-color: var(--cinza-medio);
 }
-.Login_FlipCards{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 60%;
-    margin-top: 10%;
-}
 
 .login_button{
     width: 50%;
-    height: 80px;
-    font-size: 40px;
+    height: 10% ;
+    font-size: 30px;
     background-color: var(--azul-claro);
     color: var(--branco);
     border-style: none;
@@ -81,8 +73,8 @@
 }
 .login_button_cadastro{
     width: 50%;
-    height: 80px;
-    font-size: 40px;
+    height: 10% ;
+    font-size: 30px;
     background-color: var(--azul-claro);
     color: var(--branco);
     border-style: none;
