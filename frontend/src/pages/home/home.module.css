@@ -1,5 +1,4 @@
 .HomePage{
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,34 +19,17 @@
     z-index: 999; 
 }
 .nav__Options {
-    width: 100%;
+    width: 50%;
     display: flex;
-    justify-content: center;
-}
-
-.lista_sidebar_options{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    list-style-type: none;
     justify-content: space-between;
-}
-
-.lista_sidebar_options li a {
-    display: flex;
     align-items: center;
-    font-size: 22px;
 }
 
-@media screen and (max-width: 950px) {
-    
-    .lista_sidebar_options {
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        list-style-type: none;
-        justify-content: space-between;
+@media (max-width : 1000px) {
+    .nav__Options {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 

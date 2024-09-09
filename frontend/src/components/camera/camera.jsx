@@ -47,7 +47,7 @@ export default function Camera() {
                 setIsCameraOn(true);
             } catch (error) {
                 console.log(error)
-                alert('Não tem camera boboca');
+                alert('Câmera indisponível...');
             }
         };
 

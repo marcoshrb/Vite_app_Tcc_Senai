@@ -22,6 +22,7 @@
 
 body {
   background-image: url('./assets/Background.svg');
+  background-repeat: no-repeat;
   font-family: var(--fonte);
   height: 100%;
 }
