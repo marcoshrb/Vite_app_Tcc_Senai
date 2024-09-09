@@ -78,28 +78,28 @@
 
 .login_button {
     width: 50%;
-    height: 50px;
+    height: 65px;
     font-size: 30px;
     background-color: var(--azul-claro);
     color: var(--branco);
     border-style: none;
 }
 
-.login_button :hover {
+.login_button:hover {
     cursor: pointer;
     background-color: var(--azul-escuro);
 }
 
 .login_button_cadastro {
     width: 50%;
-    height: 50px;
+    height: 65px;
     font-size: 30px;
     background-color: var(--azul-claro);
     color: var(--branco);
     border-style: none;
 }
 
-.login_button_cadastro :hover {
+.login_button_cadastro:hover {
     cursor: pointer;
     background-color: var(--azul-escuro);
 }

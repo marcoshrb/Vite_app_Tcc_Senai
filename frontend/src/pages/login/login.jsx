@@ -57,7 +57,8 @@ export default function Login() {
             </div>
             <form onSubmit={handleSubmit} className={style.Login_div_Right}>
                 <h1 className={style.Login_bem_vindo}>Bem Vindo</h1>
-                <div style={{padding: '15% 0% 15% 0% ', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <div style={{ padding: '15% 0% 15% 0% ', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px' }}>
+
                     <div >
                         <p className={style.Login_p}>Usuário: </p>
                         <input
@@ -83,8 +84,8 @@ export default function Login() {
                 </div>
                 <div className={style.Login_buttons}>
 
-                <button className={style.login_button} type='submit'>Log in</button>
-                <button className={style.login_button_cadastro} onClick={navigateCadastro}>Cadastre-se</button>
+                    <button className={style.login_button} type='submit'>Log in</button>
+                    <button className={style.login_button_cadastro} onClick={navigateCadastro}>Cadastre-se</button>
                 </div>
             </form>
         </div>

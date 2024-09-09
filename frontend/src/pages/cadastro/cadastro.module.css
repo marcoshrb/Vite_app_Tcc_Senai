@@ -38,7 +38,7 @@
 }
 .cadastro_p{
     font-family: var(--new-font);
-    font-size: 20px;
+    font-size: 25px;
     padding-left: 20px;
 }
 
@@ -62,7 +62,7 @@
     font-family: var(--new-font);
     font-size: 15px;
 }
-.cadastro_button_continuar{
+.cadastro_button_continuar {
     width: 50%;
     height: 80px;
     font-size: 40px;
@@ -70,7 +70,8 @@
     color: var(--branco);
     border-style: none;
 }
-.cadastro_button_continuar :hover{
+
+.cadastro_button_continuar:hover {
     cursor: pointer;
     background-color: var(--azul-escuro);
 }

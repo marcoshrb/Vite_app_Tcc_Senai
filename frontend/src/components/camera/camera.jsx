@@ -1,14 +1,40 @@
 import Cam_icon from './assets/interface-de-camera.svg'
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import style from './camera.module.css'
 
-export default function Camera({ img_Tracking }) {
+import Face from './assets/scanner-de-face.svg'
+import Hand from './assets/scanner-de-mão.svg'
+import Eye from './assets/scanner-de-olho.svg'
 
+export default function Camera() {
+
+    const { tracking } = useParams();
+    
     const [isCameraOn, setIsCameraOn] = useState(false);
+    const [iconTracking, setIconTracking] = useState();
     const videoRef = useRef(null);
     const streamRef = useRef(null);
-
+    
+    
+    useEffect(() => {
+        console.log('Tracking value:', tracking);
+        switch (tracking) {
+            case "eye-tracking":
+                setIconTracking(Eye);
+                break;
+            case "hand-tracking":
+                setIconTracking(Hand);
+                break;
+            case "face-tracking":
+                setIconTracking(Face);
+                break;
+            default:
+                setIconTracking(null);
+                break;
+        }
+    }, [tracking]);
 
     const SetCam = () => {
         const startCamera = async () => {
@@ -20,9 +46,11 @@ export default function Camera({ img_Tracking }) {
                 }
                 setIsCameraOn(true);
             } catch (error) {
+                console.log(error)
                 alert('Não tem camera boboca');
             }
         };
+
 
         const stopCamera = () => {
             if (streamRef.current) {
@@ -48,10 +76,9 @@ export default function Camera({ img_Tracking }) {
 
     return (
         <div className={style.camera_all}>
-
             <div className={style.camera_switches}>
                 <div className={style.switch_all}>
-                    {img_Tracking && <img src={img_Tracking} className={style.Switch_img} alt="Switch icon" />}
+                    {iconTracking && <img src={iconTracking} className={style.Switch_img} alt="Switch icon" />}
                     <label className={style.switch}>
                         <input
                             type="checkbox"
