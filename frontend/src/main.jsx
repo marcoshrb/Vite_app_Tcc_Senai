@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 
 import './index.css'
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
+    <SpeedInsights/>
     <Analytics/>
     <RouterProvider router={router} />
   </>,
