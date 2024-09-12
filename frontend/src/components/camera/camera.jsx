@@ -69,8 +69,33 @@ export default function Camera() {
         } else {
             startCamera();
         }
+    }
 
+    function sendCheckboxState() {
 
+        const checkbox = document.getElementById('trackingCheckbox');
+        const isChecked = checkbox.checked;
+        console.log(tracking)
+
+        if(isChecked)
+        {
+            fetch('http://127.0.0.1:8080/json', {  
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    tracking: tracking
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
     }
 
 
@@ -81,7 +106,9 @@ export default function Camera() {
                     {iconTracking && <img src={iconTracking} className={style.Switch_img} alt="Switch icon" />}
                     <label className={style.switch}>
                         <input
+                            id="trackingCheckbox"
                             type="checkbox"
+                            onChange={sendCheckboxState}
                         />
                         <span className={`${style.slider} ${style.round}`}></span>
                     </label>

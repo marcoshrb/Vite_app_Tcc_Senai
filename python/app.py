@@ -1,9 +1,28 @@
-from flask import Flask
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Habilita CORS para todas as rotas
 
-@app.route("/")
+@app.route('/json', methods=['POST'])
+def receive_json():
+    data = request.get_json()
 
-@app.route('/criar', methods=['POST',])
+    if data is None:
+        return jsonify({'error': 'No JSON data received'}), 400
 
-app.run(host='0.0.0.0', port=8080, debug= True)
+    tracking = data.get('tracking')
+
+    if tracking == "hand-tracking":
+        return jsonify({'hand': True})  # liga o hand tracking
+
+    if tracking == "face-tracking":
+        return jsonify({'face': True})  # liga o face tracking
+
+    if tracking == "eye-tracking":
+        return jsonify({'eye': True})  # liga o eye tracking
+
+    return jsonify({'error': 'Invalid tracking type'}), 400
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)

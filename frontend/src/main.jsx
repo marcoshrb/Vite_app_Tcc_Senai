@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     element: <Home/>,
   },
   { 
-    path: "/home/:cam_settings",
+    path: "/home/:tracking",
     element: <CamSettigns/>,
   },
   { 
