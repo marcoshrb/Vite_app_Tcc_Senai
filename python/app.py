@@ -2,9 +2,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Habilita CORS para todas as rotas
+CORS(app) 
 
-@app.route('/json', methods=['POST'])
+@app.route('/', methods=['GET'])
+def receive_get():
+    return jsonify({'get': 'hand-tracking, face-tracking, eye-tracking'})
+
+@app.route('/', methods=['POST'])
 def receive_json():
     data = request.get_json()
 
