@@ -2,8 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "/app.py",
-        "use": "@vercel/flask"
+        "src": "/app.py"
       }
     ],
     "rewrites": [
