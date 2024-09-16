@@ -16,16 +16,23 @@ def receive_json():
         return jsonify({'error': 'No JSON data received'}), 400
 
     tracking = data.get('tracking')
+    status = data.get('status')
 
     if tracking == "hand-tracking":
-        return jsonify({'hand': True})  # liga o hand tracking
+        if status:
+            return jsonify({'hand': True})  # liga o hand tracking
+        return jsonify({'hand': False})
 
     if tracking == "face-tracking":
-        return jsonify({'face': True})  # liga o face tracking
-
+        if status:
+            return jsonify({'face': True})  # liga o face tracking
+        return jsonify({'face': False})
+    
     if tracking == "eye-tracking":
-        return jsonify({'eye': True})  # liga o eye tracking
-
+        if status:
+            return jsonify({'eye': True})  # liga o eye tracking
+        return jsonify({'eye': False})
+    
     return jsonify({'error': 'Invalid tracking type'}), 400
 
 if __name__ == '__main__':
