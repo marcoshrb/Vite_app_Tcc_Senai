@@ -71,22 +71,21 @@ export default function Camera() {
         }
     }
 
-    function sendCheckboxState() {
+    const sendCheckboxState = () => {
 
         const checkbox = document.getElementById('trackingCheckbox');
         const isChecked = checkbox.checked;
-        console.log(tracking)
 
         if(isChecked)
         {
-            fetch('http://127.0.0.1:8080/json', {  
+            fetch('http://127.0.0.1:5000', {  
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     tracking: tracking
-                }),
+                })
             })
             .then(response => response.json())
             .then(data => {
@@ -108,7 +107,7 @@ export default function Camera() {
                         <input
                             id="trackingCheckbox"
                             type="checkbox"
-                            onChange={sendCheckboxState}
+                            onChange={() => sendCheckboxState()}
                         />
                         <span className={`${style.slider} ${style.round}`}></span>
                     </label>
