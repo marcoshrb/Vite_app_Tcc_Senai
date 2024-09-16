@@ -21,11 +21,9 @@ export default function Home() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (token)
-        {
-            return
-        }
-        navigate.push('/')
+        if (token) return
+
+        navigate('/')
     }, [token, navigate])
     
 
