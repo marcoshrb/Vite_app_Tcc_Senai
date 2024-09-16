@@ -84,7 +84,28 @@ export default function Camera() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    tracking: tracking
+                    tracking: tracking, 
+                    status: isChecked
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+        else
+        {
+            fetch('https://vite-app-tcc-senai-2q6k.vercel.app/', {  
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    tracking: tracking, 
+                    status: isChecked
                 })
             })
             .then(response => response.json())
