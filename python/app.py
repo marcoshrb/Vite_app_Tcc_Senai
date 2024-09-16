@@ -21,17 +21,20 @@ def receive_json():
     if tracking == "hand-tracking":
         if status:
             return jsonify({'hand': True})  # liga o hand tracking
-        return jsonify({'hand': False})
+        else:
+            return jsonify({'hand': False})
 
     if tracking == "face-tracking":
         if status:
             return jsonify({'face': True})  # liga o face tracking
-        return jsonify({'face': False})
+        else:
+            return jsonify({'face': False})
     
     if tracking == "eye-tracking":
         if status:
             return jsonify({'eye': True})  # liga o eye tracking
-        return jsonify({'eye': False})
+        else:
+            return jsonify({'eye': False})
     
     return jsonify({'error': 'Invalid tracking type'}), 400
 

@@ -11,15 +11,14 @@ import Eye from './assets/scanner-de-olho.svg'
 export default function Camera() {
 
     const { tracking } = useParams();
-    
+
     const [isCameraOn, setIsCameraOn] = useState(false);
     const [iconTracking, setIconTracking] = useState();
     const videoRef = useRef(null);
     const streamRef = useRef(null);
-    
-    
+
+
     useEffect(() => {
-        console.log('Tracking value:', tracking);
         switch (tracking) {
             case "eye-tracking":
                 setIconTracking(Eye);
@@ -75,19 +74,19 @@ export default function Camera() {
 
         const checkbox = document.getElementById('trackingCheckbox');
         const isChecked = checkbox.checked;
+        console.log("isChecked =>" ,isChecked)
 
-        if(isChecked)
-        {
-            fetch('https://vite-app-tcc-senai-2q6k.vercel.app/', {  
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    tracking: tracking, 
-                    status: isChecked
-                })
+
+        fetch('https://vite-app-tcc-senai-2q6k.vercel.app/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                tracking: tracking,
+                status: isChecked
             })
+        })
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
@@ -95,27 +94,7 @@ export default function Camera() {
             .catch((error) => {
                 console.error('Error:', error);
             });
-        }
-        else
-        {
-            fetch('https://vite-app-tcc-senai-2q6k.vercel.app/', {  
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    tracking: tracking, 
-                    status: isChecked
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        }
+
     }
 
 
