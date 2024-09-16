@@ -19,7 +19,6 @@ export default function Login() {
 
         try {
             const response = await api.post("/user/login", login);
-            console.log(response, 'dsadasdad')
 
             if (response.status === 200) {
                 const { token } = response.data;
