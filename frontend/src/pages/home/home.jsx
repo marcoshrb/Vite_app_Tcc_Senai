@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import LogoBlack from './assets/logo_black.svg'
 import IconPerson from './assets/icon _person_.svg';
@@ -8,7 +9,6 @@ import IconSettings from './assets/settings.svg';
 import Trackings from '../../components/trackings/trackings'
 import Sidebar from '../../components/sidebar/sidebar'
 import FlipCardSmall from '../../components/flip_card_small/flip_card_small';
-import { useNavigate } from "react-router-dom";
 import style from './home.module.css'
 
 export default function Home() {

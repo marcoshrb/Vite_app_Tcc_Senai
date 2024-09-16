@@ -76,7 +76,6 @@ export default function Camera() {
         const isChecked = checkbox.checked;
         console.log("isChecked =>" ,isChecked)
 
-
         fetch('https://vite-app-tcc-senai-2q6k.vercel.app/', {
             method: 'POST',
             headers: {

@@ -9,7 +9,8 @@ import settings from './assets/settings.svg'
 
 import style from './cam_settings.module.css'
 
-import { useState} from 'react';
+import { useEffect, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function CamSettigns() {
 
@@ -20,6 +21,14 @@ export default function CamSettigns() {
     {
         setModalConfig(!modalConfig)
     }
+
+    const token = localStorage.getItem('authToken')
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (token) return
+        navigate('/')
+    }, [token, navigate])
     
 
     return (

@@ -9,8 +9,20 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import style from './languages.module.css'
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function LanguageScreen() {
+
+    const token = localStorage.getItem('authToken')
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (token) return
+
+        navigate('/')
+    }, [token, navigate])
+    
     return (
         <div className={style.all_LanguageScreen}>
             <div style={{position: "absolute", top: "10px", left: "10px", width: "150px", height: "150px", zIndex: "999"}}>
