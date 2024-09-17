@@ -127,7 +127,7 @@ class UserController {
         } catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha ao enviar código` });
         }
-    }
+    };
 
     static async VerifyCode(req, res) {
         const { email, code } = req.body;
@@ -143,7 +143,7 @@ class UserController {
         } catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha ao verificar código` });
         }
-    }
+    };
 };
 
 export default UserController; 
