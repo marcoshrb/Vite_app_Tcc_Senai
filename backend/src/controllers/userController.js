@@ -1,5 +1,7 @@
 import bcrypt from 'bcryptjs';
 import user from "../models/User.js"
+import nodemailer from 'nodemailer';
+import crypto from 'crypto';
 
 class UserController {
 
@@ -87,14 +89,60 @@ class UserController {
         }
     };
 
-    static async RecoverPassword (req, res) {
+    static async RecoverPassword(req, res) {
         const { email } = req.body;
 
+        try {
+            const userEncontrado = await user.findOne({ email });
+
+            if (!userEncontrado) {
+                return res.status(404).json({ message: "Usuário não encontrado" });
+            }
+
+            // Gerar código de recuperação
+            const recoveryCode = crypto.randomBytes(3).toString('hex').toUpperCase();
+            console.log(recoveryCode)
+            userEncontrado.recoveryCode = recoveryCode;
+            userEncontrado.codeExpires = Date.now() + 3600000; 
+            await userEncontrado.save();
+
+            // Configuração do transporte de e-mail
+            const transporter = nodemailer.createTransport({
+                service: 'Gmail', 
+                auth: {
+                    user: process.env.EMAIL,
+                    pass: process.env.SENHA,
+                },
+            });
+
+            
+            await transporter.sendMail({
+                from: process.env.EMAIL,
+                to: email,
+                subject: 'Código de Recuperação de Senha',
+                text: `Seu código de recuperação é ${recoveryCode}.`
+            });
+
+            res.status(200).json({ message: 'Código de recuperação enviado para o seu e-mail.' });
+        } catch (erro) {
+            res.status(500).json({ message: `${erro.message} - falha ao enviar código` });
+        }
     }
 
-    static async VerifyCode (req, res) {
+    static async VerifyCode(req, res) {
         const { email, code } = req.body;
-        
+
+        try {
+            const userEncontrado = await user.findOne({ email });
+
+            if (!userEncontrado || userEncontrado.recoveryCode !== code || userEncontrado.codeExpires < Date.now()) {
+                return res.status(400).json({ message: 'Código inválido ou expirado.' });
+            }
+
+            res.status(200).json({ message: 'Código verificado com sucesso.' });
+        } catch (erro) {
+            res.status(500).json({ message: `${erro.message} - falha ao verificar código` });
+        }
     }
 };
 

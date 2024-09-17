@@ -1,8 +1,13 @@
 import { useState } from 'react';
+
 import api from '../../services/api';
+import style from './recover.module.css';
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export default function RecoverPassword() {
-    
+
     const [email, setEmail] = useState('');
     const [code, setCode] = useState('');
     const [isCodeSent, setIsCodeSent] = useState(false);
@@ -31,30 +36,47 @@ export default function RecoverPassword() {
     };
 
     return (
-        <div>
-            <h1>Recuperar Senha</h1>
-            {!isCodeSent ? (
-                <div>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Digite seu e-mail"
-                    />
-                    <button onClick={handleSendCode}>Enviar Código</button>
-                </div>
-            ) : (
-                <div>
-                    <input
-                        type="text"
-                        value={code}
-                        onChange={(e) => setCode(e.target.value)}
-                        placeholder="Digite o código recebido"
-                    />
-                    <button onClick={handleVerifyCode}>Verificar Código</button>
-                </div>
-            )}
-            {isCodeValid && <p>Código validado. Agora você pode redefinir sua senha.</p>}
+        <div className={style.Page}>
+            <div className={style.card}>
+                <h1>Recuperar Senha</h1>
+                {!isCodeSent ? (
+
+                    <div>
+                        <Form onSubmit={handleSendCode}>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control 
+                                    type="email" 
+                                    placeholder="Enter email" 
+                                    onChange={(e) => setEmail(e.target.value)} 
+                                    value={email}
+                                />
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Enviar
+                            </Button>
+                        </Form>
+                    </div>
+                ) : (
+                    <div>
+                        <Form onSubmit={handleVerifyCode}>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control 
+                                    type="text" 
+                                    placeholder="Digite o código recebido" 
+                                    onChange={(e) => setCode(e.target.value)} 
+                                    value={code}
+                                />
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Verificar Código
+                            </Button>
+                        </Form>
+                    </div>
+                )}
+                {isCodeValid && <p>Código validado. Agora você pode redefinir sua senha.</p>}
+            </div>
         </div>
     );
 }

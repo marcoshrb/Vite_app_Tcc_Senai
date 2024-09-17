@@ -13,8 +13,13 @@ import style from './home.module.css'
 
 export default function Home() {
     const [Options_open, setOptions_open] = useState(false)
+    
     const handleOptions = () => {
         setOptions_open(!Options_open)
+    }
+
+    const exit_button = () => {
+        localStorage.clear()
     }
     
     const token = localStorage.getItem('authToken')
@@ -34,7 +39,7 @@ export default function Home() {
             <div className={style.nav__Options}>
                 <div>
                     <div className={style.wrap_flip_card_small}>
-                        <FlipCardSmall Icon={IconExit} Text_desc={'Sair'} To={"../"} />
+                        <FlipCardSmall Icon={IconExit} Text_desc={'Sair'} To={"../"} SetVariable={() => exit_button()} />
                     </div>
                 </div>
                 <div>

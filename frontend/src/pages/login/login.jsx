@@ -78,7 +78,7 @@ export default function Login() {
                     </div>
                     <div className={style.Login_Recuperar_senha}>
                         <p className={style.Login_p_Esqueceu}>Esqueceu sua senha?</p>
-                        <a className={style.Login_p_Esqueceu} href=''>Recuperar</a>
+                        <a className={style.Login_p_Esqueceu} href='./recuperar_senha' style={{textDecoration: 'none'}}>Recuperar</a>
                     </div>
                 </div>
                 <div className={style.Login_buttons}>
