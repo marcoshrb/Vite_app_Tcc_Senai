@@ -3,12 +3,12 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100vw;
+    max-height: 100vh;
 }
 
 .Login_div_Left {
     width: 100%;
     height: 100vh;
-    background-image: url('./assets/Background.svg');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,17 +67,10 @@
     background-color: var(--cinza-medio);
 }
 
-.Login_buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    height: 100%;
-    gap: 6%;
-}
+
 
 .login_button {
-    width: 50%;
+    width: 100%;
     height: 65px;
     font-size: 30px;
     background-color: var(--azul-claro);
@@ -91,10 +84,11 @@
 }
 
 .login_button_cadastro {
+    margin-top: 2%;
     width: 50%;
     height: 65px;
     font-size: 30px;
-    background-color: var(--azul-claro);
+    background-color: transparent;
     color: var(--branco);
     border-style: none;
 }
