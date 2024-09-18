@@ -97,3 +97,14 @@
     cursor: pointer;
     background-color: var(--azul-escuro);
 }
+
+.loadingContainer{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cinza-medio);
+    opacity: 0.5;
+}

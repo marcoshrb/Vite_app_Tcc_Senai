@@ -8,7 +8,7 @@ import Face from './assets/scanner-de-face.svg'
 import Hand from './assets/scanner-de-mão.svg'
 import Eye from './assets/scanner-de-olho.svg'
 
-export default function Camera() {
+export default function Camera({setLoading}) {
 
     const { tracking } = useParams();
 
@@ -38,6 +38,7 @@ export default function Camera() {
     const SetCam = () => {
         const startCamera = async () => {
             try {
+                setLoading(true);
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 streamRef.current = stream;
                 if (videoRef.current) {
@@ -47,6 +48,8 @@ export default function Camera() {
             } catch (error) {
                 console.log(error)
                 alert('Câmera indisponível...');
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -74,7 +77,7 @@ export default function Camera() {
 
         const checkbox = document.getElementById('trackingCheckbox');
         const isChecked = checkbox.checked;
-        console.log("isChecked =>" ,isChecked)
+        setLoading(true);
 
         fetch('https://vite-app-tcc-senai-2q6k.vercel.app/', {
             method: 'POST',
@@ -92,7 +95,8 @@ export default function Camera() {
             })
             .catch((error) => {
                 console.error('Error:', error);
-            });
+            })
+            .finally(setLoading(false))
 
     }
 

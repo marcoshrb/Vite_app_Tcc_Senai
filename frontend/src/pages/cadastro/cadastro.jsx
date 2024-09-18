@@ -1,8 +1,13 @@
 import Logo from './assets/logo_black.svg';
 import style from './cadastro.module.css';
-import { useState } from 'react';
+
+import Loading from '../../components/Loading/loading';
+import AlertDefault from '../../components/alert_default/alert_default';
+
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
+
 
 function Cadastro() {
     const navigate = useNavigate();
@@ -12,6 +17,29 @@ function Cadastro() {
     const [senha, setSenha] = useState("");
     const [confSenha, setConfSenha] = useState("");
     const [adm, setAdm] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const [erroResponse, setErroResponse] = useState(false);
+    const [erroNome, setErroNome] = useState(false);
+    const [erroEmail, setErroEmail] = useState(false);
+    const [erroSenha, setErroSenha] = useState(false);
+    const [erroSenhas, setErroSenhas] = useState(false);
+
+    useEffect(() => {
+
+        const timer = setTimeout(() => {
+            setErroResponse(false);
+            setErroNome(false);
+            setErroEmail(false);
+            setErroSenha(false);
+            setErroSenhas(false);
+        }, 5000);
+
+        return () => {
+            clearTimeout(timer);
+        };
+
+    }, [erroResponse, erroNome, erroEmail, erroSenha, erroSenhas]);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -19,6 +47,7 @@ function Cadastro() {
         if (!formValid()) return;
 
         const user = { nome, email, senha, adm };
+        setLoading(true);
 
         try {
             const response = await api.post("/user", user);
@@ -26,26 +55,27 @@ function Cadastro() {
                 navigate('../');
             }
         } catch (error) {
-            console.error('Erro ao cadastrar:', error);
-            alert('Falha ao cadastrar. Verifique os dados e tente novamente.');
+            setErroResponse(true);
+        } finally {
+            setLoading(false);
         }
     }
 
     function formValid() {
         if (nome.length < 1) {
-            alert('Insira o nome');
+            setErroNome(true)
             return false;
         }
         if (email.length < 7) {
-            alert('Insira um e-mail válido');
-            return false;
-        }
-        if (confSenha !== senha) {
-            alert('As senhas não conferem');
+            setErroEmail(true)
             return false;
         }
         if (senha.length < 3) {
-            alert('Senha inferior a 3 caracteres');
+            setErroSenha(true)
+            return false;
+        }
+        if (confSenha !== senha) {
+            setErroSenhas(true)
             return false;
         }
         if (nome === "adm" && senha === "adm123") {
@@ -58,12 +88,28 @@ function Cadastro() {
 
     return (
         <div className={style.cadastro_all}>
+            {erroResponse &&
+                <AlertDefault titulo={'Erro de conexão!'} mensagem={''} />
+            }
+            {erroNome &&
+                <AlertDefault titulo={'Campo incorreto'} mensagem={'Insira o nome'} />
+            }
+            {erroEmail &&
+                <AlertDefault titulo={'Campo incorreto'} mensagem={'Insira um e-mail válido'} />
+            }
+            {erroSenha &&
+                <AlertDefault titulo={'Campo incorreto'} mensagem={'Senha inferior a 3 caracteres'} />
+            }
+            {erroSenhas &&
+                <AlertDefault titulo={'Campo incorreto'} mensagem={'As senhas não conferem'} />
+            }
+
             <div className={style.cadastro_div_Left}>
                 <img src={Logo} alt='Logo' width={380} height={276} />
             </div>
             <form onSubmit={handleSubmit} className={style.cadastro_div_Right}>
                 <h1 className={style.cadastro_bem_vindo}>Cadastro</h1>
-                <div style={{display: 'flex', flexDirection: 'column', gap:'20px', alignItems:'center'}}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
                     <div>
                         <p className={style.cadastro_p}>Nome: </p>
                         <input
@@ -109,6 +155,9 @@ function Cadastro() {
                     Continuar
                 </button>
             </form>
+            {loading &&
+                <Loading />
+            }
         </div>
     );
 }
