@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-import Loading from '../../components/Loading/loading';
+import Loading from '../../components/loading/loading';
 import AlertDefault from '../../components/alert_default/alert_default';
 
 import Logo from './assets/logo_black.svg';
