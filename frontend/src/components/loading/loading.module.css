@@ -7,4 +7,5 @@
     justify-content: center;
     background-color: var(--cinza-medio);
     opacity: 0.5;
+    z-index: 99999;
 }
