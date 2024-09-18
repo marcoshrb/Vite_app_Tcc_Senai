@@ -1,7 +1,7 @@
 import Logo from './assets/logo_black.svg';
 import style from './cadastro.module.css';
 
-import Loading from '../../components/Loading/loading';
+import Loading from '../../components/loading/loading';
 import AlertDefault from '../../components/alert_default/alert_default';
 
 import { useState, useEffect } from 'react';
