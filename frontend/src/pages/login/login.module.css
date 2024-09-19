@@ -17,12 +17,12 @@
 .Login_div_Right {
     width: 100%;
     height: 100vh;
-    background-color: rgb(188, 184, 184);
+    padding: 6% 2% 2% 2%;
+    background-color: var(--azul-claro);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 6% 2% 2% 2%;
 }
 
 @media (max-width : 1000px) {
@@ -35,55 +35,75 @@
     }
 }
 
+.login_form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .Login_bem_vindo {
-    font-family: var(--new-font);
+    color: var(--branco);
+    font-family: var(--fonte);
     font-size: 76px;
 }
 
 .Login_p {
-    font-family: var(--new-font);
+    font-family: var(--fonte);
     font-size: 30px;
     padding-left: 20px;
 }
 
 .Login_Recuperar_senha {
+    width: 100%;
+    padding: 0px 20px 0px 20px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+.Login_Recuperar_senha_div{
     gap: 10px;
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
 }
 
 .Login_p_Esqueceu {
-    font-family: var(--new-font);
+    color: var(--branco);
+    text-decoration: none;
+    font-family: var(--fonte);
     font-size: 20px;
 }
 
 .Login_Inputs {
     width: 100%;
-    font-family: var(--new-font);
-    font-size: 40px;
-    padding: 5px 25px 5px 25px;
+    font-family: var(--fonte);
+    font-size: 25px;
+    padding: 25px 30px 25px 30px;
     border-radius: 50px;
     border-style: none;
-    background-color: var(--cinza-medio);
+    background-color: var(--branco);
+    text-align: center;
 }
-
-
 
 .login_button {
     width: 100%;
     height: 65px;
     font-size: 30px;
-    background-color: var(--azul-claro);
+    border-radius: 50px;
+    background-color: var(--verde);
     color: var(--branco);
     border-style: none;
 }
 
 .login_button:hover {
     cursor: pointer;
-    background-color: var(--azul-escuro);
+    background-color: var(--verde-destaque);
 }
 
 .login_button_cadastro {
+    border-radius: 50px;
     margin-top: 2%;
     width: 50%;
     height: 65px;

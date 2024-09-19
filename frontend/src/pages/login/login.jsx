@@ -1,13 +1,10 @@
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import Loading from '../../components/loading/loading';
 import AlertDefault from '../../components/alert_default/alert_default';
 
-import Logo from './assets/logo_black.svg';
-import viewPasswordIcon from './assets/view 1.svg'
-import hidePasswordIcon from './assets/hide 1.svg'
+import Logo from '../../assets/logo_black.svg';
 import style from './login.module.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -31,13 +28,13 @@ export default function Login() {
             setPassInv(false);
             setUserInv(false);
             setNoUser(false);
-        }, 5000); 
+        }, 5000);
 
         return () => {
-            clearTimeout(timer); 
+            clearTimeout(timer);
         };
 
-    }, [userInv, passInv, noUser ]);
+    }, [userInv, passInv, noUser]);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -61,6 +58,7 @@ export default function Login() {
                 navigate('/home');
             }
         } catch (error) {
+            console.log(error)
             setNoUser(true);
         } finally {
             setLoading(false);
@@ -92,52 +90,55 @@ export default function Login() {
     return (
         <div className={style.Login_all}>
             {userInv &&
-                <AlertDefault titulo={'Usuário Inválido'} mensagem={''}/>
+                <AlertDefault titulo={'Usuário Inválido'} mensagem={''} />
             }
             {passInv &&
-                <AlertDefault titulo={'Senha Inválida'} mensagem={''}/>
+                <AlertDefault titulo={'Senha Inválida'} mensagem={''} />
             }
             {noUser &&
-                <AlertDefault titulo={'Falha ao autenticar!'} mensagem={'Verifique suas credenciais.'}/>
+                <AlertDefault titulo={'Falha ao autenticar!'} mensagem={'Verifique suas credenciais.'} />
             }
             <div className={style.Login_div_Left}>
                 <img src={Logo} alt='Logo' width={380} height={276} />
             </div >
             <div className={style.Login_div_Right}>
 
-                <form onSubmit={handleSubmit} >
+                <form onSubmit={handleSubmit} className={style.login_form} >
                     <h1 className={style.Login_bem_vindo}>Bem Vindo</h1>
-                    <div style={{ padding: '15% 0% 15% 0% ', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px' }}>
+                    <div style={{ padding: '15% 0% 15% 0% ', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px', width: '100%' }}>
                         <div style={{ width: '100%' }}>
-                            <p className={style.Login_p}>Usuário: </p>
                             <InputGroup className="mb-3">
                                 <Form.Control
                                     onChange={(evento) => setNome(evento.target.value)}
                                     value={nome}
                                     className={style.Login_Inputs}
                                     type='text'
+                                    placeholder='Username'
                                 />
                             </InputGroup>
                         </div>
 
                         <div style={{ width: '100%' }}>
-                            <p className={style.Login_p}>Senha: </p>
                             <InputGroup className="mb-3">
                                 <Form.Control
                                     onChange={(evento) => setSenha(evento.target.value)}
                                     value={senha}
                                     className={style.Login_Inputs}
                                     type={hidePassword ? 'text' : 'password'}
+                                    placeholder='Password'
                                 />
-                                <Button variant="outline-secondary" id="button-addon2" onClick={() => changePassword()} style={{ borderRadius: '0px 50px 50px 0px' }}>
-                                    <img src={hidePassword ? hidePasswordIcon : viewPasswordIcon} width={'30px'} />
-                                </Button>
                             </InputGroup>
                         </div>
 
                         <div className={style.Login_Recuperar_senha}>
-                            <p className={style.Login_p_Esqueceu}>Esqueceu sua senha?</p>
-                            <a className={style.Login_p_Esqueceu} href='./' style={{ textDecoration: 'none' }}>Recuperar</a>
+                            <div className={style.Login_Recuperar_senha_div}>
+                                <input type='checkbox' onClick={() => changePassword()} style={{height:'20px', width: '20px'}}/>
+                                <span className={style.Login_p_Esqueceu}>Mostrar senha</span>
+                            </div>
+                            <div className={style.Login_Recuperar_senha_div}>
+                                <span className={style.Login_p_Esqueceu}>Esqueceu sua senha?</span>
+                                <a className={style.Login_p_Esqueceu} href='./' style={{ textDecoration: 'none' }}>Recuperar</a>
+                            </div>
                         </div>
                     </div>
                     <button className={style.login_button} type='submit'>Log in</button>

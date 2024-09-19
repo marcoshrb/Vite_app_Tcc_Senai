@@ -1,4 +1,4 @@
-import Logo from './assets/logo_black.svg';
+import Logo from '../../assets/logo_black.svg';
 import style from './cadastro.module.css';
 
 import Loading from '../../components/loading/loading';
@@ -55,6 +55,7 @@ function Cadastro() {
                 navigate('../');
             }
         } catch (error) {
+            console.log(error)
             setErroResponse(true);
         } finally {
             setLoading(false);
@@ -109,41 +110,41 @@ function Cadastro() {
             </div>
             <form onSubmit={handleSubmit} className={style.cadastro_div_Right}>
                 <h1 className={style.cadastro_bem_vindo}>Cadastro</h1>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
-                    <div>
-                        <p className={style.cadastro_p}>Nome: </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', width: '85%' }}>
+                    <div style={{width: '100%'}}>
                         <input
                             onChange={(evento) => setNome(evento.target.value)}
                             value={nome}
                             className={style.cadastro_Inputs}
                             type='text'
+                            placeholder='Username'
                         />
                     </div>
-                    <div>
-                        <p className={style.cadastro_p}>Email: </p>
+                    <div style={{width: '100%'}}>
                         <input
                             onChange={(evento) => setEmail(evento.target.value)}
                             value={email}
                             className={style.cadastro_Inputs}
                             type='email'
+                            placeholder='Email'
                         />
                     </div>
-                    <div>
-                        <p className={style.cadastro_p}>Senha: </p>
+                    <div style={{width: '100%'}}>
                         <input
                             onChange={(evento) => setSenha(evento.target.value)}
                             value={senha}
                             className={style.cadastro_Inputs}
                             type='password'
+                            placeholder='Password'
                         />
                     </div>
-                    <div>
-                        <p className={style.cadastro_p}>Confirmar senha: </p>
+                    <div style={{width: '100%'}}>
                         <input
                             onChange={(evento) => setConfSenha(evento.target.value)}
                             value={confSenha}
                             className={style.cadastro_Inputs}
                             type='password'
+                            placeholder='Confirm Password'
                         />
                     </div>
                     <div className={style.cadastro_voltar_login}>

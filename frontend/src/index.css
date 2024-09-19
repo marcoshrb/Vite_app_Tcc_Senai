@@ -1,17 +1,19 @@
 :root {
-  --verde-destaque: #81FE88;
+  --verde: #60ac64;
+  --verde-destaque: #248329;
   --verde-petroleo: #132E35;
   --grafite: #01080E;
   --azul-escuro: #192457;
-  --azul-claro: #6e7dc4;
+  --azul-claro: #4c73c7;
+  --azul-medio: #6e7dc4;
   --cinza-escuro: #171D1F;
   --cinza-medio: #D9D9D9;
   --cinza: #3E3E3F;
   --cinza-claro: #BCBCBC;
   --offwhite: #E1E1E1;
   --branco: #FFFFFF;
-  --fonte: "Prompt", sans-serif;
-  --new-font : "Gentium Book Plus", serif;
+  --fonte: "Noto Sans", sans-serif;
+  --new-font : "Noto Sans", sans-serif;
 }
 
 * {

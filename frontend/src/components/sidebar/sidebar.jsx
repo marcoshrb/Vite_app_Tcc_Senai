@@ -21,16 +21,16 @@ export default function Sidebar({ SetVariable }) {
                 <div>
                     <ul className={style.lista_sidebar}>
                         <li>
-                            <FlipCardSmallNavbar Icon={LanguageIcon} Text_desc={'LanguageIcon'} To={'../languages'} />
+                            <FlipCardSmallNavbar Icon={LanguageIcon} Text_desc={'Languag'} To={'../languages'} />
                         </li>
                         <li>
-                            <FlipCardSmallNavbar Icon={WebcamIcon} Text_desc={'WebcamIcon'} />
+                            <FlipCardSmallNavbar Icon={WebcamIcon} Text_desc={'Webcam'} />
                         </li>
                         <li>
-                            <FlipCardSmallNavbar Icon={MicIcon} Text_desc={'MicIcon'} />
+                            <FlipCardSmallNavbar Icon={MicIcon} Text_desc={'Mic'} />
                         </li>
                         <li>
-                            <FlipCardSmallNavbar Icon={KeyboardIcon} Text_desc={'KeyboardIcon'} />
+                            <FlipCardSmallNavbar Icon={KeyboardIcon} Text_desc={'Keyboard'} />
                         </li>
                     </ul>
                 </div>

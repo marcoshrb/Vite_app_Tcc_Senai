@@ -1,4 +1,4 @@
-import LogoBlack from './assets/logo_black.svg'
+import LogoBlack from '../../assets/logo_black.svg'
 import Vector from './assets/Vector.svg'
 
 import CardsLanguage from '../../components/cards_language/cards_language'

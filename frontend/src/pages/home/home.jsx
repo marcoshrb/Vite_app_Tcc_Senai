@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import LogoBlack from './assets/logo_black.svg'
+import LogoBlack from '../../assets/logo_black.svg'
 import IconPerson from './assets/icon _person_.svg';
 import IconExit from './assets/exit.svg';
 import IconSettings from './assets/settings.svg';
@@ -44,7 +44,7 @@ export default function Home() {
                 </div>
                 <div>
                     <div className={style.wrap_flip_card_small}>
-                        <FlipCardSmall Icon={IconPerson} Text_desc={'Conta'} To={""} />
+                        <FlipCardSmall Icon={IconPerson} Text_desc={'Conta'} To={""}/>
                     </div>
                 </div>
                 <div>
