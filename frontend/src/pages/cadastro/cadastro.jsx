@@ -110,7 +110,7 @@ function Cadastro() {
             </div>
             <form onSubmit={handleSubmit} className={style.cadastro_div_Right}>
                 <h1 className={style.cadastro_bem_vindo}>Cadastro</h1>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', width: '85%' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center', width: '75%' }}>
                     <div style={{width: '100%'}}>
                         <input
                             onChange={(evento) => setNome(evento.target.value)}

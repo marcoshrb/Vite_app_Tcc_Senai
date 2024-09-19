@@ -102,10 +102,10 @@ export default function Login() {
                 <img src={Logo} alt='Logo' width={380} height={276} />
             </div >
             <div className={style.Login_div_Right}>
-
+                <h1 className={style.Login_bem_vindo}>Bem Vindo</h1>
                 <form onSubmit={handleSubmit} className={style.login_form} >
-                    <h1 className={style.Login_bem_vindo}>Bem Vindo</h1>
-                    <div style={{ padding: '15% 0% 15% 0% ', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px', width: '100%' }}>
+                    <div></div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15%', width: '100%' }}>
                         <div style={{ width: '100%' }}>
                             <InputGroup className="mb-3">
                                 <Form.Control

@@ -16,7 +16,6 @@
 .cadastro_div_Right{
     width: 100%;
     height: 100vh;
-    padding: 6% 2% 2% 2%;
     background-color: var(--azul-claro);
     display: flex;
     flex-direction: column;
@@ -43,7 +42,7 @@
     width: 100%;
     font-family: var(--font);
     font-size: 25px;
-    padding: 25px 30px 25px 30px;
+    padding: 2% 15% 2% 15%;
     border-radius: 50px;
     border-style: none;
     background-color: var(--branco);
@@ -68,8 +67,9 @@
 
 .cadastro_button_continuar {
     width: 50%;
-    height: 80px;
-    font-size: 40px;
+    height: 10%;
+    margin-bottom: 2%;
+    font-size: 25px;
     border-radius: 50px;
     background-color: var(--verde);
     color: var(--branco);
