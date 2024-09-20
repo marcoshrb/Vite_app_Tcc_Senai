@@ -1,8 +1,8 @@
 .HomePage{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     height: 100vh;
 }
 .Logo_Home{
@@ -19,17 +19,18 @@
     z-index: 999; 
 }
 .nav__Options {
-    width: 50%;
     display: flex;
+    width: 70%;
     justify-content: space-between;
     align-items: center;
 }
 
-@media (max-width : 1000px) {
+@media (max-width : 900px) {
     .nav__Options {
         width: 100%;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 }
 
@@ -38,20 +39,4 @@
     align-items: center;
     justify-content: center;
     width: 250px;
-}
-
-.item__Options__link{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: var(--azul-escuro);
-    color: var(--branco);
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-}
-
-.lista_sidebar_options_row{
-    display: flex;
-    flex-direction: row;
 }

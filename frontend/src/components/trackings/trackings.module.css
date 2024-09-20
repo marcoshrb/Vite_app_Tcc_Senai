@@ -1,37 +1,29 @@
-nav{
-    padding: 0% 10% 0% 10%;
-    width: 100%;
+nav{    
+    width: 80%;
 }
 
 .nav__Trackings {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
 }
 
 .lista_sidebar_trackings {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     flex-direction: row;
     justify-content: space-between;
     list-style-type: none;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1100px) {
 
     .lista_sidebar_trackings {
         display: flex;
         align-items: center;
         flex-direction: column;
-        list-style-type: none;
     }
 }
 
-.lista_sidebar_trackings li a {
-    display: flex;
-    align-items: center;
-    font-size: 22px;
-}
