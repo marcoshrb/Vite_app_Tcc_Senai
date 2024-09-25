@@ -1,7 +1,9 @@
-from .routes.hand_tracking import hand_tck_bp
+from . import routes
 
-from flask import Flask
+from flask import Flask, Blueprint
 
 app = Flask(__name__)
 
-app.register_blueprint(hand_tck_bp)
+for item in routes.__all__:
+    if isinstance(item, Blueprint):
+        app.register_blueprint(item)
