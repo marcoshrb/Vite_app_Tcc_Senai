@@ -1,21 +1,23 @@
 import mediapipe as mp
 import tracking as tck
 
+from app.system_infos import System
 from config import Config
 from tracking.hand_tracking import Hand, Tracking
 from typing import List
 
 from . import hand_commands
+from . abstract import AbstractTracking
 
-class HandTracking:
+class HandTracking(AbstractTracking):
     __tracker: Tracking = None
-    __config: Config = Config('HandTracking')
+    config: Config = Config('HandTracking')
     hands: List[Hand] = []
     image: mp.Image = None
 
     @classmethod
     def run(cls):
-        cls.__tracker.predict()
+        cls.__tracker.predict(side_mirror=System.mirrored_webcam)
 
     @classmethod
     def _set_tracker(cls,
@@ -34,7 +36,7 @@ class HandTracking:
             cls.hands = hands
             cls.image = image
             for command in commands:
-                command(hands, image, timestamp)
+                command(cls, hands, image, timestamp)
 
         cls.__tracker = Tracking(max_num_hands=max_num_hands,
                                  running_mode=tck.running_mode.LIVE_STREAM,

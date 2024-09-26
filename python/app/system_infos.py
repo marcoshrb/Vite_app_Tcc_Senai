@@ -13,6 +13,7 @@ class System:
     
     monitors:           List[Monitor]   = []
     screens_size:       Tuple[int, int] = (0, 0)
+    screens_pos:        Tuple[int, int] = (0, 0)
     webcam:             int             = 0
     mirrored_webcam:    bool            = False
 
@@ -29,10 +30,12 @@ class System:
     @classmethod
     def __search_monitors(cls):
         monitors = get_monitors()
-        size = np.max([(m.x + m.width, m.y + m.height) for m in monitors], axis=0)
+        pos = np.min([(m.x, m.y) for m in monitors], axis=0)
+        size = np.max([(m.x - pos[0] + m.width, m.y - pos[1] + m.height) for m in monitors], axis=0)
         with cls.__lock:
             cls.monitors = monitors
             cls.screens_size = tuple(size.tolist())
+            cls.screens_pos = tuple(pos.tolist())
             
     @classmethod
     def __import_from_config(cls):
