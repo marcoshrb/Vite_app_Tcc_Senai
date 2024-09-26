@@ -79,13 +79,12 @@ export default function Camera({setLoading}) {
         const isChecked = checkbox.checked;
         setLoading(true);
 
-        fetch('https://vite-app-tcc-senai-2q6k.vercel.app/', {
+        fetch('http://127.0.0.1:8080/hand_tracking/status', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                tracking: tracking,
                 status: isChecked
             })
         })
