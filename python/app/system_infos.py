@@ -1,20 +1,30 @@
 import numpy as np
 
-from screeninfo import get_monitors
-from threading import Lock, Thread
+from screeninfo import get_monitors, Monitor
+from threading import Event, Lock, Thread
+from typing import List, Tuple
 
 from config import Config
 
 class System:
     __lock = Lock()
     __system = Config('System')
+    __loaded = Event()
     
-    monitors = []
-    screens_size = (0, 0)
+    monitors:           List[Monitor]   = []
+    screens_size:       Tuple[int, int] = (0, 0)
+    webcam:             int             = 0
+    mirrored_webcam:    bool            = False
+
+    @classmethod
+    def wait_to_load(cls):
+        cls.__loaded.wait()
     
     @classmethod
     def update(cls):
+        cls.__import_from_config()
         cls.__search_monitors()
+        cls.__loaded.set()
     
     @classmethod
     def __search_monitors(cls):
@@ -22,13 +32,12 @@ class System:
         size = np.max([(m.x + m.width, m.y + m.height) for m in monitors], axis=0)
         with cls.__lock:
             cls.monitors = monitors
-            cls.screens_size = tuple(size)
+            cls.screens_size = tuple(size.tolist())
             
-    @property
-    def webcam(self):
-        return System.__system['webcam']
-    
-system = System()
+    @classmethod
+    def __import_from_config(cls):
+        cls.webcam = cls.__system['webcam']
+        cls.mirrored_webcam = cls.__system['mirrored_webcam']
 
 def parallel_updater():
     def update():

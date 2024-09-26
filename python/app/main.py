@@ -3,10 +3,12 @@ import tracking as tck
 from config import Config
 
 from .trackers.hand_tracking import HandTracking
-from .system_infos import parallel_updater, system
+from .system_infos import parallel_updater, System
 
 parallel_updater()
-tck.init(system.screens_size, system.webcam, flags=tck.HandTracking)
+System.wait_to_load()
+
+tck.init(System.screens_size, System.webcam, flags=tck.type.HAND_TRACKING)
 
 hand_tck_config = Config('HandTracking')
 

@@ -23,7 +23,7 @@ if __name__ == '__main__':
     try:
         from app import main
     except Exception as e:
-        raise e
+        print(f"Closed with exception: {e}")
     finally:
         Config.save(args.config)
         os.kill(os.getpid(), signal.SIGTERM)
