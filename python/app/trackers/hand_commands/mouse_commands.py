@@ -60,9 +60,9 @@ def _mouse_click(cls: AbstractTracking, hands: List[Hand], image: mp.Image, time
     
     with global_lock:
         global primary_btn, secondary_btn
-        if  (thumb and index and middle and 
+        if  (thumb and index and
             math.euclidean_distance(thumb_tip, index_tip) < 0.05):
-            if math.euclidean_distance(thumb_tip, middle_tip) < 0.05:
+            if middle and math.euclidean_distance(thumb_tip, middle_tip) < 0.05:
                 primary_btn = False
                 secondary_btn = True
             else:
