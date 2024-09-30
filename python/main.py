@@ -3,6 +3,7 @@ import argparse
 import os
 import signal
 import threading
+import webcam
 
 from config import Config
 
@@ -19,6 +20,9 @@ if __name__ == '__main__':
 
     api_thread = threading.Thread(target=api.run, args=(args.port,))
     api_thread.start()
+    
+    webcam_thread = threading.Thread(target=webcam.main)
+    webcam_thread.start()
 
     try:
         from app import main
