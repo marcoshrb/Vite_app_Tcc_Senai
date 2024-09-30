@@ -36,6 +36,7 @@
     font-family: var(--font);
     font-size: 76px;
     color: var(--branco);
+    margin-top: 10%;
 }
 
 .cadastro_Inputs{

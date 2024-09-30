@@ -44,6 +44,7 @@
 }
 
 .Login_bem_vindo {
+    margin-top: 10%;
     color: var(--branco);
     font-family: var(--fonte);
     font-size: 76px;
