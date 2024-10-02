@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 from app.events import loading
 from tracking import CONFIG
@@ -6,6 +7,7 @@ from tracking.utils import normalize_pixel
 from config import Config
 
 hand_config = Config('HandTracking')
+face_config = Config('FaceTracking')
 
 def main():
     loading.wait()
@@ -16,7 +18,20 @@ def main():
         width, height = cap.shape
         if frame is None:
             continue
-        
+        images = []
+            
+        if face_config['in_use'] == True:
+            from app.trackers.face_tracking import FaceTracking
+            for face in FaceTracking.faces:
+                face.draw(frame, (255, 100, 100))
+                face.draw_contour(frame, (255, 0, 0))
+                
+                center = face.landmarks.get_points([9])[0]
+                direction = face.direction()
+                point = [point + dir * 0.2 for point, dir in zip(center, direction)]
+                cv2.line(frame, normalize_pixel(*center[:2], width, height), normalize_pixel(*point[:2], width, height), (0, 0, 255), 2)                
+                
+                
         if hand_config['in_use'] == True:
             from app.trackers.hand_tracking import HandTracking
             for hand in HandTracking.hands:
