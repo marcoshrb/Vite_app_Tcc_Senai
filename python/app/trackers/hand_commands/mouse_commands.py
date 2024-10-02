@@ -43,26 +43,35 @@ def _mouse_move(cls: AbstractTracking, hands: List[Hand], image: mp.Image, times
 
 @command
 def _mouse_click(cls: AbstractTracking, hands: List[Hand], image: mp.Image, timestamp: int):
+    global primary_btn, secondary_btn
+    print(f"{primary_btn} \t {secondary_btn}")
     if not hands:
+        primary_btn = False
+        secondary_btn = False
         return
     
     mouse_hand = next((hand for hand in hands if hand.side == tck.side.RIGHT), hands[0])
 
-    thumb_tip_idx = tck.finger.get_tip(tck.finger.THUMB)
-    index_tip_idx = tck.finger.get_tip(tck.finger.INDEX)
-    middle_tip_idx = tck.finger.get_tip(tck.finger.MIDDLE)
+    thumb_tip_idxs = tck.finger.get_points(tck.finger.THUMB)
+    index_tip_idxs = tck.finger.get_points(tck.finger.INDEX)
+    middle_tip_idxs = tck.finger.get_points(tck.finger.MIDDLE)
 
-    thumb_tip, index_tip, middle_tip = mouse_hand.landmarks.get_points([thumb_tip_idx, index_tip_idx, middle_tip_idx])
+    thumb_tip, index_tip, middle_tip = mouse_hand.landmarks.get_points([thumb_tip_idxs[-1], index_tip_idxs[-1], middle_tip_idxs[-1]])
+    thumb_base, index_base, middle_base = mouse_hand.landmarks.get_points([thumb_tip_idxs[1], index_tip_idxs[1], middle_tip_idxs[1]])
 
     thumb  = 0 <= thumb_tip[0]  <= 1 and 0 <= thumb_tip[1]  <= 1
     index  = 0 <= index_tip[0]  <= 1 and 0 <= index_tip[1]  <= 1
     middle = 0 <= middle_tip[0] <= 1 and 0 <= middle_tip[1] <= 1
     
+    index_tip_thumb = math.euclidean_distance(thumb_tip, index_tip)
+    index_base_thumb = math.euclidean_distance(thumb_base, index_base)
+    
+    middle_tip_thumb = math.euclidean_distance(thumb_tip, middle_tip)
+    middle_base_thumb = math.euclidean_distance(thumb_base, middle_base)
+    
     with global_lock:
-        global primary_btn, secondary_btn
-        if  (thumb and index and
-            math.euclidean_distance(thumb_tip, index_tip) < 0.05):
-            if middle and math.euclidean_distance(thumb_tip, middle_tip) < 0.05:
+        if (thumb and index and index_tip_thumb < index_base_thumb / 2):
+            if middle and middle_tip_thumb < middle_base_thumb / 2:
                 primary_btn = False
                 secondary_btn = True
             else:
