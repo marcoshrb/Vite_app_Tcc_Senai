@@ -1,7 +1,4 @@
 Flask==3.0.3
-mediapipe==0.10.14
-numpy==2.1.1
 PyAutoGUI==0.9.54
 screeninfo==0.8.1
-tracking_py==1.0.2
-setuptools==75.1.0
+tracking_py==1.1.0
